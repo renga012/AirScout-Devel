@@ -1,0 +1,653 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">21.12.2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">21:44:26</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc" class="file"><acronym title="C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc">C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">91</td></tr>
+</table>
+</td>
+</table><a name="IDREVVJFVWJIZVGW0TTMMFA3KBVMDITT2MG3KCODU4OR1LAR04ZUG"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIHYFGW2YNLBMEHVOQVF3WCNIMI43FCRZ1QUZ4BB4GIC5R2URUOCP">Clearance Constraint (Gap=8mil) (OnLayer('Bottom Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNERKHZVUAR1DIB1OZPUHP1YMFC3YBEQBPVMSO2BV2V0PJJLEKYKO">Clearance Constraint (Gap=8mil) (OnLayer('Top Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC2RUL0ZF21M3GKJ3WMSXHMOL2K5UJ2GO2E0HNVS5IKKPXOUQMF">Clearance Constraint (Gap=7.874mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0FHDTENH1JPAPAU0QW2GPYKLHNKBGIBQUUYQXOBXAMMU3SDFUO2L">Clearance Constraint (Gap=7.874mil) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1MEPZ5D2WLX0JT41UDFP2TBMVNNGEAFACO2JA0GSSMGYRJEXONW">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTGYATH3TDPCCF12K4Q534YVB0MP24G10TZ335VFNPACIFWWHECVG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBU0UG3OBK2YRHX2ZTM5FJGSLZI5C0EEA5CPFGHLVI5XKFEK0PDOK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1BSHK0HQEU4CCHYYL0UGNCAS5BQWLEV2JMQOESFYFUUWGETNIZVG">Width Constraint (Min=3.5mil) (Max=100mil) (Preferred=15mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4T2QMQFJUG5INKYGGIOLCPND3NDMSGCMYLRXOMCJN4XZXH4CZ2MN">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIVQ01SZQ21URRDVCWMP1YDJPPXFWZZQ2AHLBYJ43AOMGULNTWV">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5GQ0PHMRT4BNP13PHFBSD54QDPXFYOQRFL2DBBPDIOTBFNBHWPSF">Minimum Annular Ring (Minimum=5.118mil) (All)</a></td>
+<td class="column2">38</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFKKJMBGF54YTGOOKAV2DK2KEWON5JD0J1QEDCDFHD4MNT33NIPHM">Hole Size Constraint (Min=7.874mil) (Max=248.031mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXDIOMKFTBDJXB42YKFCHLAEP34MLQTVH2TTTSM5HL4L4PCD0L4C">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNXTAHGOTZBMTBSFPSL1K4YZ2WMJQ02BURNVVF3NWUWEIFKAQ4Y5N">Minimum Solder Mask Sliver (Gap=3.937mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRDKM2NTC4345ENP5VBIAL5DM2K345J35RWCA3LBG0YZC5NYLSXTD">Silk To Solder Mask (Clearance=3.937mil) (IsPad),(All)</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDG5VWLCSP0RH4BPHYYP4LIG1E5IVPFXNUSMAM05OQOAGAJ0YCOZIG">Silk to Silk (Clearance=3.937mil) (All),(All)</a></td>
+<td class="column2">17</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY0ARLPAOHZDGL5YHVSN1YMBOLOY2E54R4GK1QGGA2U02VQBPMTNJ">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCIFO3M0IFBJMJGRBQW42WN5KLK3FWRS1ITQI3IMW3DFQGAYVRF5J">Board Clearance Constraint (Gap=0mil) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKAGGV4DQFSU0CH05E1X2BMCFGM1QQKMALG5G0DB2YZALWDLDHIWD">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">91</td>
+</tr>
+</table><br><a name="ID0FHDTENH1JPAPAU0QW2GPYKLHNKBGIBQUUYQXOBXAMMU3SDFUO2L"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=7.874mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=491.934mil|Location2.X=501.058mil|Location1.Y=1297.753mil|Location2.Y=1306.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=491.934mil|Location2.X=501.058mil|Location1.Y=1297.753mil|Location2.Y=1306.877mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-A(540mil,361.984mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.934mil|Location2.X=500.058mil|Location1.Y=1376.595mil|Location2.Y=1385.719mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.934mil|Location2.X=500.058mil|Location1.Y=1376.595mil|Location2.Y=1385.719mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-A(540mil,361.984mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=579.942mil|Location2.X=589.066mil|Location1.Y=1298.753mil|Location2.Y=1307.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=579.942mil|Location2.X=589.066mil|Location1.Y=1298.753mil|Location2.Y=1307.877mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-A(540mil,361.984mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=578.942mil|Location2.X=588.066mil|Location1.Y=1239.359mil|Location2.Y=1248.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=578.942mil|Location2.X=588.066mil|Location1.Y=1239.359mil|Location2.Y=1248.483mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-K(540mil,215.748mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.934mil|Location2.X=500.058mil|Location1.Y=1238.359mil|Location2.Y=1247.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.934mil|Location2.X=500.058mil|Location1.Y=1238.359mil|Location2.Y=1247.483mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-K(540mil,215.748mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=579.942mil|Location2.X=589.066mil|Location1.Y=1238.359mil|Location2.Y=1247.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=579.942mil|Location2.X=589.066mil|Location1.Y=1238.359mil|Location2.Y=1247.483mil|Absolute=True">Clearance Constraint: (2mil &lt; 7.874mil) Between Pad D1-K(540mil,215.748mil) on BOTTOM And Region (0 hole(s)) BOTTOM </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID1MEPZ5D2WLX0JT41UDFP2TBMVNNGEAFACO2JA0GSSMGYRJEXONW"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=168.864mil|Location2.X=217.871mil|Location1.Y=1178.016mil|Location2.Y=1227.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=168.864mil|Location2.X=217.871mil|Location1.Y=1178.016mil|Location2.Y=1227.023mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-2(200mil,218.268mil) on Multi-Layer And Track (71.772mil,218.268mil)(200mil,218.268mil) on TOP Location : [X = 193.368mil][Y = 1202.52mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=168.864mil|Location2.X=217.871mil|Location1.Y=1335.497mil|Location2.Y=1384.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=168.864mil|Location2.X=217.871mil|Location1.Y=1335.497mil|Location2.Y=1384.503mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-4(200mil,375.748mil) on Multi-Layer And Track (71.772mil,375.748mil)(200mil,375.748mil) on TOP Location : [X = 193.368mil][Y = 1360mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDTGYATH3TDPCCF12K4Q534YVB0MP24G10TZ335VFNPACIFWWHECVG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.272mil|Location2.X=212.5mil|Location1.Y=1190.02mil|Location2.Y=1215.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.272mil|Location2.X=212.5mil|Location1.Y=1190.02mil|Location2.Y=1215.02mil|Absolute=True">Un-Routed Net Constraint: Track (71.772mil,218.268mil)(200mil,218.268mil) on TOP Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.272mil|Location2.X=212.5mil|Location1.Y=1347.5mil|Location2.Y=1372.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.272mil|Location2.X=212.5mil|Location1.Y=1347.5mil|Location2.Y=1372.5mil|Absolute=True">Un-Routed Net Constraint: Track (71.772mil,375.748mil)(200mil,375.748mil) on TOP Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5GQ0PHMRT4BNP13PHFBSD54QDPXFYOQRFL2DBBPDIOTBFNBHWPSF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=5.118mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2642.977mil|Location2.Y=2649.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2642.977mil|Location2.Y=2649.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-1(2555mil,1640.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3542.977mil|Location2.Y=3549.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3542.977mil|Location2.Y=3549.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-10(2555mil,2540.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3642.977mil|Location2.Y=3649.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3642.977mil|Location2.Y=3649.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-11(2555mil,2640.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3742.977mil|Location2.Y=3749.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3742.977mil|Location2.Y=3749.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-12(2555mil,2740.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3842.977mil|Location2.Y=3849.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3842.977mil|Location2.Y=3849.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-13(2555mil,2840.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3942.977mil|Location2.Y=3949.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3942.977mil|Location2.Y=3949.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-14(2555mil,2940.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2742.977mil|Location2.Y=2749.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2742.977mil|Location2.Y=2749.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-2(2555mil,1740.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2842.977mil|Location2.Y=2849.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2842.977mil|Location2.Y=2849.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-3(2555mil,1840.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2942.977mil|Location2.Y=2949.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2942.977mil|Location2.Y=2949.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-4(2555mil,1940.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3042.977mil|Location2.Y=3049.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3042.977mil|Location2.Y=3049.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-5(2555mil,2040.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3142.977mil|Location2.Y=3149.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3142.977mil|Location2.Y=3149.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-6(2555mil,2140.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3242.977mil|Location2.Y=3249.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3242.977mil|Location2.Y=3249.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-7(2555mil,2240.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3342.977mil|Location2.Y=3349.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3342.977mil|Location2.Y=3349.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-8(2555mil,2340.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3442.977mil|Location2.Y=3449.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=3442.977mil|Location2.Y=3449.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J3-9(2555mil,2440.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2008.725mil|Location2.Y=2015.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2008.725mil|Location2.Y=2015.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J5-1(200mil,1006.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=1908.725mil|Location2.Y=1915.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=1908.725mil|Location2.Y=1915.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J5-2(200mil,906.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=1808.725mil|Location2.Y=1815.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=1808.725mil|Location2.Y=1815.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J5-3(200mil,806.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2412.977mil|Location2.Y=2419.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2412.977mil|Location2.Y=2419.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J6-1(200mil,1410.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2312.977mil|Location2.Y=2319.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2312.977mil|Location2.Y=2319.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J6-2(200mil,1310.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2212.977mil|Location2.Y=2219.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=196.816mil|Location2.X=203.184mil|Location1.Y=2212.977mil|Location2.Y=2219.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J6-3(200mil,1210.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2157.977mil|Location2.Y=2164.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2157.977mil|Location2.Y=2164.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J7-1(2555mil,1155.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2257.977mil|Location2.Y=2264.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2257.977mil|Location2.Y=2264.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J7-2(2555mil,1255.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2357.977mil|Location2.Y=2364.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=2357.977mil|Location2.Y=2364.345mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J7-3(2555mil,1355.748mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1753.725mil|Location2.Y=1760.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1753.725mil|Location2.Y=1760.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J8-1(2555mil,751.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1853.725mil|Location2.Y=1860.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1853.725mil|Location2.Y=1860.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J8-2(2555mil,851.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1953.725mil|Location2.Y=1960.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.816mil|Location2.X=2558.184mil|Location1.Y=1953.725mil|Location2.Y=1960.093mil|Absolute=True">Minimum Annular Ring: (4.92mil &lt; 5.118mil) Pad J8-3(2555mil,951.495mil) on Multi-Layer (Annular Ring=4.921mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.816mil|Location2.X=2213.184mil|Location1.Y=4233.706mil|Location2.Y=4240.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.816mil|Location2.X=2213.184mil|Location1.Y=4233.706mil|Location2.Y=4240.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2210mil,3245.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2291.816mil|Location2.X=2298.184mil|Location1.Y=4288.706mil|Location2.Y=4295.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2291.816mil|Location2.X=2298.184mil|Location1.Y=4288.706mil|Location2.Y=4295.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2295mil,3300.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3478.706mil|Location2.Y=3485.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3478.706mil|Location2.Y=3485.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2390mil,2490.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3583.706mil|Location2.Y=3590.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3583.706mil|Location2.Y=3590.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2390mil,2595.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3678.706mil|Location2.Y=3685.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=3678.706mil|Location2.Y=3685.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2390mil,2690.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=4078.706mil|Location2.Y=4085.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=4078.706mil|Location2.Y=4085.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2390mil,3090.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=4183.706mil|Location2.Y=4190.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2386.816mil|Location2.X=2393.184mil|Location1.Y=4183.706mil|Location2.Y=4190.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2390mil,3195.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3478.706mil|Location2.Y=3485.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3478.706mil|Location2.Y=3485.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2460mil,2490.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3583.706mil|Location2.Y=3590.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3583.706mil|Location2.Y=3590.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2460mil,2595.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3678.706mil|Location2.Y=3685.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=3678.706mil|Location2.Y=3685.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2460mil,2690.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=4078.706mil|Location2.Y=4085.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=4078.706mil|Location2.Y=4085.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2460mil,3090.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=4183.706mil|Location2.Y=4190.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.816mil|Location2.X=2463.184mil|Location1.Y=4183.706mil|Location2.Y=4190.074mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 5.118mil) Via (2460mil,3195.748mil) from TOP to BOTTOM (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDNXTAHGOTZBMTBSFPSL1K4YZ2WMJQ02BURNVVF3NWUWEIFKAQ4Y5N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=3.937mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512.564mil|Location2.X=2517.751mil|Location1.Y=3422.407mil|Location2.Y=3427.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512.564mil|Location2.X=2517.751mil|Location1.Y=3422.407mil|Location2.Y=3427.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.787mil &lt; 3.937mil) Between Pad J3-9(2555mil,2440.748mil) on Multi-Layer And Via (2495mil,2440.748mil) from TOP to BOTTOM [Top Solder] Mask Sliver [2.788mil] / [Bottom Solder] Mask Sliver [2.788mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1072.407mil|Location2.X=1077.593mil|Location1.Y=3369.828mil|Location2.Y=3375.015mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1072.407mil|Location2.X=1077.593mil|Location1.Y=3369.828mil|Location2.Y=3375.015mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.535mil &lt; 3.937mil) Between Pad U4-2(1075mil,2362.825mil) on BOTTOM And Via (1075mil,2405.748mil) from TOP to BOTTOM [Bottom Solder] Mask Sliver [3.535mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDRDKM2NTC4345ENP5VBIAL5DM2K345J35RWCA3LBG0YZC5NYLSXTD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=3.937mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1637.125mil|Location2.X=1640.749mil|Location1.Y=1422.361mil|Location2.Y=1425.986mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1637.125mil|Location2.X=1640.749mil|Location1.Y=1422.361mil|Location2.Y=1425.986mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Arc (1635mil,439.921mil) on Top Overlay And Pad L1-1(1635mil,395.748mil) on TOP [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=882.188mil|Location2.X=885.812mil|Location1.Y=1407.641mil|Location2.Y=1411.266mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=882.188mil|Location2.X=885.812mil|Location1.Y=1407.641mil|Location2.Y=1411.266mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad C2-1(904.772mil,455.748mil) on TOP And Text "U1" (884mil,391.748mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=944.68mil|Location2.X=949.867mil|Location1.Y=2281.385mil|Location2.Y=2286.572mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=944.68mil|Location2.X=949.867mil|Location1.Y=2281.385mil|Location2.Y=2286.572mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.176mil &lt; 3.937mil) Between Pad C21-2(935.228mil,1335.748mil) on BOTTOM And Text "C20" (964mil,1261.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.176mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.68mil|Location2.X=731.867mil|Location1.Y=2131.385mil|Location2.Y=2136.572mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.68mil|Location2.X=731.867mil|Location1.Y=2131.385mil|Location2.Y=2136.572mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.176mil &lt; 3.937mil) Between Pad C23-1(715.228mil,1185.748mil) on BOTTOM And Text "C22" (746mil,1111.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.176mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.68mil|Location2.X=731.867mil|Location1.Y=2281.385mil|Location2.Y=2286.572mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.68mil|Location2.X=731.867mil|Location1.Y=2281.385mil|Location2.Y=2286.572mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.176mil &lt; 3.937mil) Between Pad C24-1(715.228mil,1335.748mil) on BOTTOM And Text "C23" (746mil,1261.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.176mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1799.188mil|Location2.X=1802.812mil|Location1.Y=1473.641mil|Location2.Y=1477.266mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1799.188mil|Location2.X=1802.812mil|Location1.Y=1473.641mil|Location2.Y=1477.266mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad C3-2(1819.772mil,515.748mil) on TOP And Text "U2" (1801mil,457.748mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2897.715mil|Location2.Y=2901.34mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2897.715mil|Location2.Y=2901.34mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad C6-1(1870mil,1940.976mil) on TOP And Track (1870.079mil,1560.827mil)(1870.079mil,3593.307mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2787.259mil|Location2.Y=2790.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2787.259mil|Location2.Y=2790.883mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad C6-2(1870mil,1830.52mil) on TOP And Track (1870.079mil,1560.827mil)(1870.079mil,3593.307mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1838.036mil|Location2.X=1847.616mil|Location1.Y=3161.882mil|Location2.Y=3168.529mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1838.036mil|Location2.X=1847.616mil|Location1.Y=3161.882mil|Location2.Y=3168.529mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.053mil &lt; 3.937mil) Between Pad C8-2(1814.772mil,2145.748mil) on BOTTOM And Text "1UF" (1900mil,2170.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.054mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=537.407mil|Location2.X=542.593mil|Location1.Y=1299.603mil|Location2.Y=1304.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=537.407mil|Location2.X=542.593mil|Location1.Y=1299.603mil|Location2.Y=1304.79mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.236mil &lt; 3.937mil) Between Pad D1-A(540mil,361.984mil) on BOTTOM And Track (540mil,263.827mil)(540mil,313.827mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [2.236mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=537.407mil|Location2.X=542.593mil|Location1.Y=1241.406mil|Location2.Y=1246.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=537.407mil|Location2.X=542.593mil|Location1.Y=1241.406mil|Location2.Y=1246.593mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.158mil &lt; 3.937mil) Between Pad D1-K(540mil,215.748mil) on BOTTOM And Track (540mil,263.827mil)(540mil,313.827mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [2.158mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=211.461mil|Location2.X=215.085mil|Location1.Y=2269.555mil|Location2.Y=2273.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=211.461mil|Location2.X=215.085mil|Location1.Y=2269.555mil|Location2.Y=2273.18mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad J6-2(200mil,1310.748mil) on Multi-Layer And Text "C17" (246.727mil,1221.431mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=211.461mil|Location2.X=215.085mil|Location1.Y=2220.597mil|Location2.Y=2224.222mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=211.461mil|Location2.X=215.085mil|Location1.Y=2220.597mil|Location2.Y=2224.222mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad J6-3(200mil,1210.748mil) on Multi-Layer And Text "C17" (246.727mil,1221.431mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.87mil|Location2.X=1115.057mil|Location1.Y=3093.351mil|Location2.Y=3098.538mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1109.87mil|Location2.X=1115.057mil|Location1.Y=3093.351mil|Location2.Y=3098.538mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.419mil &lt; 3.937mil) Between Pad R10-1(1133.268mil,2145.748mil) on BOTTOM And Text "R10" (1106.817mil,2078.273mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [3.419mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1034.014mil|Location2.X=1037.639mil|Location1.Y=3094.167mil|Location2.Y=3097.791mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1034.014mil|Location2.X=1037.639mil|Location1.Y=3094.167mil|Location2.Y=3097.791mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad R10-2(1016.732mil,2145.748mil) on BOTTOM And Text "R10" (1106.817mil,2078.273mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1139.49mil|Location2.X=1143.115mil|Location1.Y=1328.066mil|Location2.Y=1331.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1139.49mil|Location2.X=1143.115mil|Location1.Y=1328.066mil|Location2.Y=1331.69mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad R2-2(1160mil,335.748mil) on TOP And Text "C4" (1119mil,317.748mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=739.49mil|Location2.X=743.115mil|Location1.Y=1328.066mil|Location2.Y=1331.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=739.49mil|Location2.X=743.115mil|Location1.Y=1328.066mil|Location2.Y=1331.69mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Pad R6-2(760mil,335.748mil) on TOP And Text "C1" (719mil,317.748mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=887.033mil|Location2.X=892.22mil|Location1.Y=1228.19mil|Location2.Y=1233.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=887.033mil|Location2.X=892.22mil|Location1.Y=1228.19mil|Location2.Y=1233.377mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.786mil &lt; 3.937mil) Between Pad U1-6(910.591mil,258.346mil) on TOP And Text "R5" (877mil,208.748mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.786mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.005mil|Location2.X=1824.192mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.005mil|Location2.X=1824.192mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.945mil &lt; 3.937mil) Between Pad U5-1(1832.598mil,2350.803mil) on BOTTOM And Text "TCRxx" (1925mil,2380.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.945mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.236mil|Location2.X=1875.423mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.236mil|Location2.X=1875.423mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.945mil &lt; 3.937mil) Between Pad U5-2(1870mil,2350.803mil) on BOTTOM And Text "TCRxx" (1925mil,2380.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.945mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1910.777mil|Location2.X=1915.964mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1910.777mil|Location2.X=1915.964mil|Location1.Y=3361.434mil|Location2.Y=3366.621mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.945mil &lt; 3.937mil) Between Pad U5-3(1907.402mil,2350.803mil) on BOTTOM And Text "TCRxx" (1925mil,2380.748mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.945mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDG5VWLCSP0RH4BPHYYP4LIG1E5IVPFXNUSMAM05OQOAGAJ0YCOZIG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=3.937mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.795mil|Location2.X=1854.419mil|Location1.Y=3167.602mil|Location2.Y=3171.227mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.795mil|Location2.X=1854.419mil|Location1.Y=3167.602mil|Location2.Y=3171.227mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "1UF" (1900mil,2170.748mil) on Bottom Overlay And Track (1852.581mil,2186.181mil)(1887.419mil,2186.181mil) on Bottom Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2498.386mil|Location2.X=2502.01mil|Location1.Y=3851.365mil|Location2.Y=3854.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2498.386mil|Location2.X=2502.01mil|Location1.Y=3851.365mil|Location2.Y=3854.99mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "4.7UF" (2475mil,2945.748mil) on Top Overlay And Track (2505mil,1605.748mil)(2505mil,3040.748mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=248.188mil|Location2.X=251.812mil|Location1.Y=2203.87mil|Location2.Y=2207.495mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=248.188mil|Location2.X=251.812mil|Location1.Y=2203.87mil|Location2.Y=2207.495mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "C17" (246.727mil,1221.431mil) on Top Overlay And Track (250mil,1110.748mil)(250mil,1455.748mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=889.705mil|Location2.X=893.329mil|Location1.Y=2277.642mil|Location2.Y=2281.266mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=889.705mil|Location2.X=893.329mil|Location1.Y=2277.642mil|Location2.Y=2281.266mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "C20" (964mil,1261.748mil) on Bottom Overlay And Track (862.581mil,1295.315mil)(897.419mil,1295.315mil) on Bottom Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=654.978mil|Location2.X=658.602mil|Location1.Y=2127.755mil|Location2.Y=2131.379mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=654.978mil|Location2.X=658.602mil|Location1.Y=2127.755mil|Location2.Y=2131.379mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "C22" (746mil,1111.748mil) on Bottom Overlay And Track (642.581mil,1145.315mil)(677.419mil,1145.315mil) on Bottom Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=671.705mil|Location2.X=675.329mil|Location1.Y=2277.755mil|Location2.Y=2281.379mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=671.705mil|Location2.X=675.329mil|Location1.Y=2277.755mil|Location2.Y=2281.379mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "C23" (746mil,1261.748mil) on Bottom Overlay And Track (642.581mil,1295.315mil)(677.419mil,1295.315mil) on Bottom Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2989.339mil|Location2.Y=2992.964mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.266mil|Location2.X=1871.891mil|Location1.Y=2989.339mil|Location2.Y=2992.964mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "C6" (1842.122mil,1979.021mil) on Top Overlay And Track (1870.079mil,1560.827mil)(1870.079mil,3593.307mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.49mil|Location2.X=2504.115mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.49mil|Location2.X=2504.115mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "J4" (2480mil,3675.748mil) on Top Overlay And Track (39.37mil,3700.787mil)(2716.535mil,3700.787mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=39.736mil|Location2.X=43.361mil|Location1.Y=2478.503mil|Location2.Y=2482.127mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=39.736mil|Location2.X=43.361mil|Location1.Y=2478.503mil|Location2.Y=2482.127mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "J6" (8.095mil,1489.001mil) on Top Overlay And Track (39.37mil,1496.063mil)(2716.535mil,1496.063mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=37.558mil|Location2.X=41.182mil|Location1.Y=2488.167mil|Location2.Y=2491.792mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=37.558mil|Location2.X=41.182mil|Location1.Y=2488.167mil|Location2.Y=2491.792mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "J6" (8.095mil,1489.001mil) on Top Overlay And Track (39.37mil,1496.063mil)(39.37mil,3700.787mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2522.915mil|Location2.X=2526.539mil|Location1.Y=2478.503mil|Location2.Y=2482.127mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2522.915mil|Location2.X=2526.539mil|Location1.Y=2478.503mil|Location2.Y=2482.127mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "J7" (2508mil,1488.748mil) on Top Overlay And Track (39.37mil,1496.063mil)(2716.535mil,1496.063mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2528.779mil|Location2.X=2532.404mil|Location1.Y=2100.642mil|Location2.Y=2104.266mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2528.779mil|Location2.X=2532.404mil|Location1.Y=2100.642mil|Location2.Y=2104.266mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "J8" (2508.289mil,1084.748mil) on Top Overlay And Track (2505mil,1110.748mil)(2670mil,1110.748mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1105.005mil|Location2.X=1108.63mil|Location1.Y=3094.167mil|Location2.Y=3097.791mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1105.005mil|Location2.X=1108.63mil|Location1.Y=3094.167mil|Location2.Y=3097.791mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "R10" (1106.817mil,2078.273mil) on Bottom Overlay And Track (1048.622mil,2112.283mil)(1101.378mil,2112.283mil) on Bottom Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=925.368mil|Location2.X=928.993mil|Location1.Y=1213.49mil|Location2.Y=1217.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=925.368mil|Location2.X=928.993mil|Location1.Y=1213.49mil|Location2.Y=1217.115mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "R5" (877mil,208.748mil) on Top Overlay And Track (928.504mil,234.331mil)(991.496mil,234.331mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1852.988mil|Location2.X=1856.613mil|Location1.Y=1460.535mil|Location2.Y=1464.159mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1852.988mil|Location2.X=1856.613mil|Location1.Y=1460.535mil|Location2.Y=1464.159mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "U2" (1801mil,457.748mil) on Top Overlay And Track (1857.581mil,475.315mil)(1892.419mil,475.315mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1408.188mil|Location2.X=1411.812mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1408.188mil|Location2.X=1411.812mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "U3" (1410mil,3672.748mil) on Top Overlay And Track (39.37mil,3700.787mil)(2716.535mil,3700.787mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=143.188mil|Location2.X=146.812mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=143.188mil|Location2.X=146.812mil|Location1.Y=4683.227mil|Location2.Y=4686.852mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 3.937mil) Between Text "U6" (145mil,3675.748mil) on Top Overlay And Track (39.37mil,3700.787mil)(2716.535mil,3700.787mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCIFO3M0IFBJMJGRBQW42WN5KLK3FWRS1ITQI3IMW3DFQGAYVRF5J"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-6.468mil|Location2.X=6.593mil|Location1.Y=2054.343mil|Location2.Y=2067.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-6.468mil|Location2.X=6.593mil|Location1.Y=2054.343mil|Location2.Y=2067.404mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.126mil &lt; 11.811mil) Between Board Edge And Text "J5" (8mil,1084.495mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-6.42mil|Location2.X=6.641mil|Location1.Y=2458.848mil|Location2.Y=2471.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-6.42mil|Location2.X=6.641mil|Location1.Y=2458.848mil|Location2.Y=2471.909mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.221mil &lt; 11.811mil) Between Board Edge And Text "J6" (8.095mil,1489.001mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=190.547mil|Location2.X=199.421mil|Location1.Y=4722.758mil|Location2.Y=4731.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V2.0\AirScoutPCBV2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=190.547mil|Location2.X=199.421mil|Location1.Y=4722.758mil|Location2.Y=4731.632mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 11.811mil) Between Board Edge And Text "U6" (145mil,3675.748mil) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

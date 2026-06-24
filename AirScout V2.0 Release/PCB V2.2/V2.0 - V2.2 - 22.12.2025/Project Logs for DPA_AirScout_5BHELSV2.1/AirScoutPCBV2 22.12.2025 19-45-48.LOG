@@ -1,0 +1,9 @@
+Change Component Comment : Designator=U6 Old Comment=FM20206VBNN; SSM-106-F-SV New Comment=NPPC061KFXC-RC
+Change Component Comment : Designator=S2 Old Comment=SSM-106-F-SV New Comment=NPPC061KFXC-RC
+Change Component Comment : Designator=S3 Old Comment=SSM-106-F-SV New Comment=NPPC061KFXC-RC
+Added Pin To Net: NetName=EN Pin=U3-37
+Added Net: Name=EN
+Added Pin To Net: NetName=RUN Pin=U3-30
+Added Net: Name=RUN
+Added Rule: Name=Schematic Supply Nets_31
+Added Rule: Name=Schematic Supply Nets_32

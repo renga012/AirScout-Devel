@@ -1,0 +1,5 @@
+Added Component: Designator=L1(IND_FDSD0420-H-100M=P3)
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC Pin=L1-1
+Added Pin To Net: NetName=NetL1_2 Pin=L1-2
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component L1 PA4332.103NLT

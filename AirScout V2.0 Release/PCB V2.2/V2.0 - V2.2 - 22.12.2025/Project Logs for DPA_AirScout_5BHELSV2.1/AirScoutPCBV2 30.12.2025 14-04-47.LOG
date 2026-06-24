@@ -1,0 +1,6 @@
+Added Component: Designator=J4(SAMTEC_IDMS-04-S-02.00)
+Added Pin To Net: NetName=SPI/SCK Pin=J4-1
+Added Pin To Net: NetName=SPI/MISO Pin=J4-2
+Added Pin To Net: NetName=SPI/MOSI Pin=J4-3
+Added Pin To Net: NetName=SPI/CS-SD Pin=J4-4
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J4 IDMS-4-D-02.00-R

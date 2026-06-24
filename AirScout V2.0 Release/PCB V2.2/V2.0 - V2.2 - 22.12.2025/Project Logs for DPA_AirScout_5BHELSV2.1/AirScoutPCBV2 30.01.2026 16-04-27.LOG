@@ -1,0 +1,8 @@
+Added Component: Designator=J1(CON2x1)
+Added Component: Designator=J2(CON2x1)
+Added Pin To Net: NetName=VBUS Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=VCC Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J2-2
+Added Member To Class: ClassName=AirScout_SchematicsV2.1 Member=Component J1 B02B-PASK-1
+Added Member To Class: ClassName=AirScout_SchematicsV2.1 Member=Component J2 B02B-PASK-1

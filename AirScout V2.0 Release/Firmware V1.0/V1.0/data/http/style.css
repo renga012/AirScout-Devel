@@ -1,0 +1,170 @@
+html {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+p {
+    font-size: large;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    border-left: 2px gray solid;
+    border-right: 2px gray solid;
+}
+
+td,
+th {
+    font-size: large;
+    border-top: 2px gray solid;
+    border-bottom: 2px gray solid;
+    height: 25px;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+h2 {
+    font-size: large;
+}
+
+.table_h2 {
+    border-right: #fff 2px solid;
+    border-left: #fff 2px solid;
+    font-size: large;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    margin-bottom: 0px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button_disconnect {
+    background-color: crimson;
+}
+
+.button_disconnect:active,
+.button_disconnect:hover {
+    background-color: tomato;
+}
+
+.button_connect {
+    background-color: seagreen;
+}
+
+.button_connect:active,
+.button_connect:hover {
+    background-color: yellowgreen;
+}
+
+.button {
+    white-space: nowrap;
+    height: max-content;
+    width: 70%;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: medium;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    border-radius: 10px;
+    background-image: linear-gradient(to top left,
+            rgb(0 0 0 / 0.2),
+            rgb(0 0 0 / 0.2) 30%,
+            transparent);
+    box-shadow:
+        inset 2px 2px 3px rgb(255 255 255 / 0.6),
+        inset -2px -2px 3px rgb(0 0 0 / 0.6);
+}
+
+.button:active {
+    box-shadow:
+        inset -2px -2px 3px rgb(255 255 255 / 0.6),
+        inset 2px 2px 3px rgb(0 0 0 / 0.6);
+}
+
+.formButtonsDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+.formButton {
+    border-radius: 10px;
+    height: fit-content;
+    border: 0;
+    padding: 0 20px;
+    font-size: medium;
+    text-align: center;
+    color: black;
+}
+
+.formButton:active {
+    box-shadow:
+        inset -2px -2px 3px rgb(255 255 255 / 0.6),
+        inset 2px 2px 3px rgb(0 0 0 / 0.6);
+}
+
+.formButton_cancel {}
+
+.formButton_confirm {}
+
+#passwdInput {
+    width: 100%;
+    border-radius: 7px
+}
+
+#showPasswordInput {
+    font-size: medium;
+    user-select: none;
+}
+
+dialog {
+    margin-top: 100px;
+    border-radius: 15px;
+    border-color: white;
+    font-size: large;
+    box-shadow: 0px 0px 20px gray;
+}
+
+dialog:open::backdrop {
+    background-color: rgb(0 0 0 / 25%);
+}
+
+@media (max-width: 1100px) {
+    table {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    td,
+    th {
+        font-size: medium;
+    }
+
+    .button {
+        font-size: small;
+        width: 95%;
+    }
+}
+
+html {
+    visibility: visible;
+    opacity: 1;
+}

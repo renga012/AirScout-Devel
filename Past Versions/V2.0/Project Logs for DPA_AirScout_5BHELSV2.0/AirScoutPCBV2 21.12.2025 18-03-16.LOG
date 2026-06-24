@@ -1,0 +1,4 @@
+Added Component: Designator=D1(SMB_DIO)
+Added Pin To Net: NetName=GND Pin=D1-A
+Added Pin To Net: NetName=VBUS Pin=D1-K
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component D1 SMBJ14CA-13-F

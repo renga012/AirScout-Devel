@@ -1,0 +1,11 @@
+Added Component: Designator=J?(JST_B2B-PH-K-S)
+Added Component: Designator=L?(IND_FDSD0420-H-100M=P3)
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC Pin=J?-1
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Pin To Net: NetName=VCC Pin=L?-1
+Added Pin To Net: NetName=NetL?_2 Pin=L?-2
+Added Pin To Net: NetName=NetL?_2 Pin=U2-1
+Added Net: Name=NetL?_2
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J? B02B-PASK-1
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component L? PA4332.103NLT

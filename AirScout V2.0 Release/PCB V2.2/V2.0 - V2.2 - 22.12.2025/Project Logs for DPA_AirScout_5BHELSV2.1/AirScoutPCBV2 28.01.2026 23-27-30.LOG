@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=GND Pin=C20-1
+Removed Pin From Net: NetName=3V3 Pin=C20-2
+Removed Pin From Net: NetName=GND Pin=C21-1
+Removed Pin From Net: NetName=3V3 Pin=C21-2
+Removed Pin From Net: NetName=GND Pin=C22-1
+Removed Pin From Net: NetName=5VCC Pin=C22-2
+Removed Pin From Net: NetName=GND Pin=C23-1
+Removed Pin From Net: NetName=5VCC Pin=C23-2
+Removed Pin From Net: NetName=GND Pin=C24-1
+Removed Pin From Net: NetName=5VCC Pin=C24-2
+Removed Pin From Net: NetName=3V3 Pin=S3-1
+Removed Pin From Net: NetName=I2C/SCL Pin=S3-3
+Removed Pin From Net: NetName=I2C/SDA Pin=S3-4
+Removed Pin From Net: NetName=GND Pin=S3-6
+Removed Pin From Net: NetName=5VCC Pin=S3-10
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=C20
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=C21
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=C22
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=C23
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=C24
+Removed Member From Class: ClassName=AirScout_SchematicsV2.0 Member=S3
+Change Component Footprint: Designator=J1 Old Footprint=CONN_S2B-PH-K-S_JST New Footprint=CON2x1
+Change Component Footprint: Designator=J2 Old Footprint=CONN_S2B-PH-K-S_JST New Footprint=CON2x1
+Change Class Name : Old Net Name=AirScout_SchematicsV2.0 New Net Name=AirScout_SchematicsV2.1

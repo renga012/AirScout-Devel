@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [DPA_AirScout_5BHELSV2.1.PrjPcb]
+   Generated File[AirScoutPCBV2.2-Plated.TXT]
+   Generated File[AirScoutPCBV2.2-NonPlated.TXT]
+   Generated File[AirScoutPCBV2.2.LDP]
+   Generated File[AirScoutPCBV2.2.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 15:31:40 On 04.02.2026

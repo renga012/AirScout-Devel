@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: AirScoutPCBV2.2.PcbDoc   04.02.2026  15:31:40
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP to BOTTOM
+ASCII Plated RoundHoles File : AirScoutPCBV2.2-Plated.TXT
+ASCII Non-Plated RoundHoles File : AirScoutPCBV2.2-NonPlated.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             72        PTH        19.14inch (486.08mm)
+T2      16mil (0.4mm)                                             Round             71        PTH        19.81inch (503.07mm)
+T3      20mil (0.5mm)                                             Round             11        PTH        4.72inch (119.82mm)
+T4      26mil (0.65mm)                                            Round             6         PTH        3.96inch (100.49mm)
+T5      28mil (0.7mm)                                             Round             3         PTH        1.74inch (44.22mm)
+T6      29mil (0.737mm)                                           Round             5         PTH        0.24inch (6.00mm)
+T7      37mil (0.95mm)                                            Round             30        PTH        8.44inch (214.33mm)
+T8      118mil (3mm)                                              Round             7         NPTH       7.53inch (191.36mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              205
+
+Total Processing Time (hh:mm:ss) : 00:00:00

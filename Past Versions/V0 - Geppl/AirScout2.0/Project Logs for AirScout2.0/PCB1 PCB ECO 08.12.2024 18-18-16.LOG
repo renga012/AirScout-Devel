@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=NetPicoW_27 Pin=R1-2
+Added Pin To Net: NetName=NetPicoW_26 Pin=R2-2
+Added Pin To Net: NetName=NetPicoW_24 Pin=SW1-1
+Added Pin To Net: NetName=NetPicoW_25 Pin=SW2-1

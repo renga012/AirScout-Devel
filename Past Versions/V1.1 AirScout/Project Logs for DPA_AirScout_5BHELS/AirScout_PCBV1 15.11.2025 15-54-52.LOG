@@ -1,0 +1,6 @@
+Change Component Comment : Designator=J1 Old Comment=5024430670 New Comment=B6B-PH-K-S
+Change Component Description : Designator=J1 Old Description=CONN RCPT 6POS 0.079 TIN SMD New Description=CONN HEADER VERT 6POS 2MM
+Added Component: Designator=J2(JST_B2B-PH-K-S)
+Added Pin To Net: NetName=VCC Pin=J2-1
+Added Pin To Net: NetName=BAT_GND Pin=J2-2
+Added Member To Class: ClassName=AirScout_SchematicsV0_Spannungsversorgung Member=Component J2 B02B-PASK-1

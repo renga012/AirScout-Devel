@@ -1,0 +1,16 @@
+{
+    "hardware": {
+        "en_bme680": true,
+        "en_sps30": true,
+        "en_cam_m8q": true,
+        "meas_interval_sec": 20
+    },
+    "automatic_sleep_time_sec": 300,
+    "display_auto_off_sec": 20,
+    "wifi_connections": [],
+    "hostname": "AIRSCOUT_",
+    "token": "",
+    "is_set_up": false,
+    "time_zone": 0,
+    "last_chunk_index": 0
+}

@@ -1,0 +1,11 @@
+Added Component: Designator=J3(CONN_14POL_SAMTEC)
+Added Pin To Net: NetName=SPI/MISO Pin=J3-6
+Added Pin To Net: NetName=LED Pin=J3-7
+Added Pin To Net: NetName=SPI/SCK Pin=J3-8
+Added Pin To Net: NetName=SPI/MOSI Pin=J3-9
+Added Pin To Net: NetName=DC Pin=J3-10
+Added Pin To Net: NetName=RST Pin=J3-11
+Added Pin To Net: NetName=SPI/CS-DIS Pin=J3-12
+Added Pin To Net: NetName=GND Pin=J3-13
+Added Pin To Net: NetName=3V3 Pin=J3-14
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J3 IDMS-14-D-02.00-R

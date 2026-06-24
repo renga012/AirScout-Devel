@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+    <title>AirScout Wifi Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link id="favicon" rel="icon" href="icons/network-wireless-100_favicon.svg" type="image/svg" sizes="22x22">
+</head>
+
+<body>
+    <dialog id="passwdDialog" closedby="any">
+        <form id="passwdForm">
+            <label id="passwdDialogLabel">Add:</label>
+            <input id="passwdDialogSSIDField" type="hidden" name="ssid" />
+
+            <p> <input name="password" type="password" id="passwdInput" required minlength="8" size="10"
+                    placeholder="Password" /> </p>
+
+            <input id="showPasswordInputCheckBox" type="checkbox" onclick="showPassword()">
+            <label for="showPasswordInputCheckBox" id="showPasswordInput">Show Password</label>
+
+            <div class="formButtonsDiv">
+                <input id="cancelBtn" value="Cancel" type="button" class="formButton formButton_cancel" />
+                <input id="confirmBtn" value="Add" type="submit" class="formButton formButton_confirm" />
+            </div>
+        </form>
+    </dialog>
+
+
+    <h1>Wifi Setup</h1>
+    <p>
+        Web interface will close after a connection is attemped.
+    </p>
+    <table class="center">
+        <thead id="wifi_header" class="scan_known_wifi">
+            <tr>
+                <th></th>
+                <th>SSID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="connected_wifi_body" class="connected_wifi">
+        </tbody>
+
+        <tbody id="scan_wifi_body">
+        </tbody>
+
+        <thead id="known_networks_header" class="known_nets">
+            <tr>
+                <th colspan="5" class="table_h2">
+                    <h2>Saved networks:</h2>
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>SSID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="known_networks_body" class="known_nets">
+        </tbody>
+    </table>
+
+    <script>
+        strings = {
+            passwdTooShort: 'Passwort must be at least 8 characters long',
+            connectButton: 'Connect',
+            addNetworkButton: 'Add network',
+            disconnectButton: 'Disconnect',
+            deleteButton: 'delete',
+            accessPointClosed: 'Access Point closed, trying to connect to wifi...'
+        }
+
+    </script>
+    <script src="wifi.js"></script>
+
+</body>
+
+</html>

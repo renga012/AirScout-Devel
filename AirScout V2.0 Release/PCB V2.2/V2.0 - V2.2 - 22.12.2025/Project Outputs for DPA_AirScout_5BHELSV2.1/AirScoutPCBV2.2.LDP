@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\reneg\OneDrive\Desktop\Diploima\V2.1\V2.2 - 22.12.2025\AirScoutPCBV2.2.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=airscoutpcbv2.2-plated.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_NonPlated_Thru_Holes|DrillFile=airscoutpcbv2.2-nonplated.txt|DrillLayers=gtl,g1,g2,gbl

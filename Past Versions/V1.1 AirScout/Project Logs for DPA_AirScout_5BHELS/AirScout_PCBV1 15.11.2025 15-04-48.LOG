@@ -1,0 +1,16 @@
+Change Component Comment : Designator=J4 Old Comment=5024430370 New Comment=0705430002
+Change Component Comment : Designator=J5 Old Comment=5024430370 New Comment=0705430002
+Change Component Comment : Designator=J6 Old Comment=5024430370 New Comment=0705430002
+Change Component Comment : Designator=J7 Old Comment=5024430370 New Comment=0705430002
+Change Component Comment : Designator=J3 Old Comment=5024431470 New Comment=0705430013
+Change Component Description : Designator=J4 Old Description=CONN RCPT 3POS 0.079 TIN SMD New Description=CONN HEADER VERT 3POS 2.54MM
+Change Component Description : Designator=J5 Old Description=CONN RCPT 3POS 0.079 TIN SMD New Description=CONN HEADER VERT 3POS 2.54MM
+Change Component Description : Designator=J6 Old Description=CONN RCPT 3POS 0.079 TIN SMD New Description=CONN HEADER VERT 3POS 2.54MM
+Change Component Description : Designator=J7 Old Description=CONN RCPT 3POS 0.079 TIN SMD New Description=CONN HEADER VERT 3POS 2.54MM
+Change Component Description : Designator=J3 Old Description=CONN RCPT 14POS 0.079 TIN SMD New Description=CONN HEADER VERT 14POS 2.54MM
+Added Component: Designator=J1(JST_B6B-PH-K-S)
+Added Pin To Net: NetName=VBUS Pin=J1-1
+Added Pin To Net: NetName=CC1 Pin=J1-3
+Added Pin To Net: NetName=CC2 Pin=J1-5
+Added Pin To Net: NetName=BAT_GND Pin=J1-6
+Added Member To Class: ClassName=AirScout_SchematicsV0_Spannungsversorgung Member=Component J1 5024430670

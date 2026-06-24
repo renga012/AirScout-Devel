@@ -1,0 +1,13 @@
+Added Component: Designator=GPS Modul(CAM-M8Q-Breakout)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DT15-12PA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DT15-12PA/TE%20Connectivity%20Deutsch%20Connectors/view-part/2279777/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=TX Pin=GPS Modul-9
+Added Pin To Net: NetName=RX Pin=GPS Modul-10
+Added Pin To Net: NetName=GND Pin=GPS Modul-11
+Added Pin To Net: NetName=3V3 Pin=GPS Modul-12
+Added Member To Class: ClassName=Sheet1 Member=Component GPS Modul CAM-M8Q Breakout

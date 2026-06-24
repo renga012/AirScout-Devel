@@ -1,0 +1,20 @@
+Added Component: Designator=J5(CONN_3POL_SAMTEC)
+Added Component: Designator=J6(CONN_3POL_SAMTEC)
+Added Component: Designator=J7(CONN_3POL_SAMTEC)
+Added Component: Designator=J8(CONN_3POL_SAMTEC)
+Added Pin To Net: NetName=3V3 Pin=J5-1
+Added Pin To Net: NetName=NetC16_2 Pin=J5-2
+Added Pin To Net: NetName=GND Pin=J5-3
+Added Pin To Net: NetName=3V3 Pin=J6-1
+Added Pin To Net: NetName=NetC17_2 Pin=J6-2
+Added Pin To Net: NetName=GND Pin=J6-3
+Added Pin To Net: NetName=3V3 Pin=J7-1
+Added Pin To Net: NetName=NetC18_2 Pin=J7-2
+Added Pin To Net: NetName=GND Pin=J7-3
+Added Pin To Net: NetName=3V3 Pin=J8-1
+Added Pin To Net: NetName=NetC19_2 Pin=J8-2
+Added Pin To Net: NetName=GND Pin=J8-3
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J5 IDMS-3-D-02.00-R
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J6 IDMS-3-D-02.00-R
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J7 IDMS-3-D-02.00-R
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J8 IDMS-3-D-02.00-R

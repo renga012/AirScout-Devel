@@ -1,0 +1,54 @@
+Removed Pin From Net: NetName=GND Pin=3,3V Converter-2
+Removed Pin From Net: NetName=GND Pin=3,3V Converter-2
+Removed Pin From Net: NetName=Batterie Out Pin=3,3V Converter-3
+Removed Pin From Net: NetName=3V3 Pin=3,3V Converter-4
+Removed Pin From Net: NetName=Batterie Out Pin=3,3V Converter-5
+Remove Pin from Net: Failed to remove Pin
+Removed Pin From Net: NetName=NetPicoW_26 Pin=R2-2
+Removed Pin From Net: NetName=NetPicoW_24 Pin=SW1-1
+Added Component: Designator=D1(LED-1)
+Added Component: Designator=D2(LED-1)
+Added Component: Designator=Finedust Sensor(HM3301)
+Added Component: Designator=S1(TL36WW15050)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.apem.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "05-Dec-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Dec-2003"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Schematic revised, PCB Footprint replaced."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Switch; 4 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "TL36WW15050"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "24-Mar-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=Voltage Regulator 3V3(SOT89-5)
+Add component (AddParameter): Name = "Digi-Key_Part_Number"; Value = "296-47674-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.com/product-detail/en/texas-instruments/TLV61046ADBVR/296-47674-1-ND/8133043?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TLV61046ADBVR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT-23 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TLV61046ADBVR/Texas%20Instruments/view-part/985721/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=GND Pin=D1-2
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=GND Pin=D2-2
+Added Pin To Net: NetName=3V3 Pin=Finedust Sensor-3.3V
+Added Pin To Net: NetName=GND Pin=Finedust Sensor-GND
+Added Pin To Net: NetName=SCL Pin=Finedust Sensor-SCL
+Added Pin To Net: NetName=SDA Pin=Finedust Sensor-SDA
+Add Pin To Net: Unknown Pin: Pin GPS Modul-11
+Add Pin To Net: Unknown Pin: Pin PicoW-D2
+Added Pin To Net: NetName=NetPicoW_24 Pin=R2-2
+Added Pin To Net: NetName=Batterie Out Pin=S1-2
+Added Pin To Net: NetName=NetCHB-C-LIT1A_1 Pin=S1-3
+Added Pin To Net: NetName=NetPicoW_26 Pin=SW1-1
+Added Pin To Net: NetName=GND Pin=3,3V Converter-2
+Added Pin To Net: NetName=GND Pin=3,3V Converter-2
+Added Pin To Net: NetName=Batterie Out Pin=3,3V Converter-3
+Added Pin To Net: NetName=3V3 Pin=3,3V Converter-4
+Added Pin To Net: NetName=Batterie Out Pin=3,3V Converter-5
+Added Member To Class: ClassName=Sheet1 Member=Component D1 LED-G
+Added Member To Class: ClassName=Sheet1 Member=Component D2 LED-R
+Added Member To Class: ClassName=Sheet1 Member=Component Finedust Sensor HM3301
+Added Member To Class: ClassName=Sheet1 Member=Component Lithium-Io Cell CON2
+Added Member To Class: ClassName=Sheet1 Member=Component S1 Power Switch
+Added Member To Class: ClassName=Sheet1 Member=Component Voltage Regulator 3V3 NJM12856

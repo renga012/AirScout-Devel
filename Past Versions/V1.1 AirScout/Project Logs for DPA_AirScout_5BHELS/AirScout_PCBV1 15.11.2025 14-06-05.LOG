@@ -1,0 +1,10 @@
+Added Component: Designator=S1(CONN5_B5B-ZR_JST)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://sensirion.com/media/documents/8600FF88/64A3B8D6/Sensirion_PM_Sensors_Datasheet_SPS30.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "EU Component"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "https://www.digikey.at/en/products/detail/sensirion-ag/SPS30/9598990?gclsrc=aw.ds&gad_source=1&gad_campaignid=9415055229&gbraid=0AAAAADrbLlghU28cdFM9RQIiS448Os4NQ&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVladtv1vxGMu0RXHFTM9ng6qsDvV838Q-BR2Fl5FYFzWahIkC0y_aYaAqE3EALw_wcB"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5VCC Pin=S1-1
+Added Pin To Net: NetName=I2C/SDA Pin=S1-2
+Added Pin To Net: NetName=I2C/SCL Pin=S1-3
+Added Pin To Net: NetName=GND Pin=S1-5
+Added Member To Class: ClassName=AirScout_SchematicsV0_Spannungsversorgung Member=Component S1 B5B-ZR

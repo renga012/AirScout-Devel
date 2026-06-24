@@ -1,0 +1,45 @@
+---
+BasedOnStyle: Google
+IndentWidth: 4
+AccessModifierOffset: -4
+ColumnLimit: 1000
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Right
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakTemplateDeclarations: false
+AlignConsecutiveMacros: true
+AllowShortIfStatementsOnASingleLine: Never
+
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
+  AfterFunctionDefinitionName: false
+  AfterFunctionDeclarationName: false
+  AfterOverloadedOperator: false
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 2
+---
+Language: C
+DerivePointerAlignment: false
+PointerAlignment: Right
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakTemplateDeclarations: false
+AlignConsecutiveMacros: true
+AllowShortIfStatementsOnASingleLine: Never
+
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
+  AfterFunctionDefinitionName: false
+  AfterFunctionDeclarationName: false
+  AfterOverloadedOperator: false
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 2

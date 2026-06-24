@@ -1,0 +1,58 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: AirScout_PCBV1.1.PcbDoc   16.11.2025  13:59:50
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : AirScout_PCBV1.1.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             63        PTH        538.17mm (21.19inch)
+T2      0.5mm (20mil)                                             Round             1         PTH        0.00mm (0.00inch)
+T3      0.65mm (26mil)                                            Round             23        PTH        232.02mm (9.13inch)
+T4      0.737mm (29mil)                                           Round             5         PTH        6.00mm (0.24inch)
+T5      0.8mm (31mil)                                             Round             8         PTH        25.50mm (1.00inch)
+T6      1mm (39mil)                                               Round             8         PTH        25.50mm (1.00inch)
+T7      1.168mm (46mil)                                           Round             14        PTH        33.02mm (1.30inch)
+T8      1.17mm (46mil)                                            Round             12        PTH        89.54mm (3.53inch)
+T9      2.5mm (98mil)                                             Round             4         NPTH       323.00mm (12.72inch)
+T10     3mm (118mil)                                              Round             2         NPTH       11.00mm (0.43inch)
+T11     3.2mm (126mil)                                            Round             2         NPTH       23.00mm (0.91inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              142
+Layer Pair : Top Layer to Signal Layer 1
+ASCII RoundHoles File : AirScout_PCBV1.1.TX1
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             39        PTH        324.38mm (12.77inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              39
+Layer Pair : Top Layer to Signal Layer 2
+ASCII RoundHoles File : AirScout_PCBV1.1.TX2
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             136       PTH        1072.26mm (42.22inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              136
+Layer Pair : Signal Layer 1 to Bottom Layer
+ASCII RoundHoles File : AirScout_PCBV1.1.TX3
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             170       PTH        906.31mm (35.68inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              170
+Layer Pair : Signal Layer 2 to Bottom Layer
+ASCII RoundHoles File : AirScout_PCBV1.1.TX4
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             34        PTH        249.44mm (9.82inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              34
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              521
+
+Total Processing Time (hh:mm:ss) : 00:00:00

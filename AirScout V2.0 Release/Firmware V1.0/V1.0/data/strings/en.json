@@ -1,0 +1,8 @@
+{
+    "network_error_password": "The wifi password is not correct.",
+    "network_error_hw": "Wifi hardware issue.",
+    "network_error_other": "Connection to Wifi not possible.",
+    "settings_local_file_not_found": "Settings could not be found. Loading default values...",
+    "settings_cloud_file_not_found": "Advanced settings could not be found. Loading default values...",
+    "logger_could_not_write_file": "Logging to file failed"
+}

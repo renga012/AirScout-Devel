@@ -1,0 +1,16 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [AirScout_PCBV1.1.PcbDoc]
+   Generated File[AirScout_PCBV1.1.TXT]
+   Generated File[AirScout_PCBV1.1.TX1]
+   Generated File[AirScout_PCBV1.1.TX2]
+   Generated File[AirScout_PCBV1.1.TX3]
+   Generated File[AirScout_PCBV1.1.TX4]
+   Generated File[AirScout_PCBV1.1.LDP]
+   Generated File[AirScout_PCBV1.1.DRR]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 13:59:50 On 16.11.2025

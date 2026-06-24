@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=J2 Old Footprint=JST_B2B-PH-K-S New Footprint=CONN2_2060-472998-404_WAG
+Added Component: Designator=J?(CONN2_2060-472998-404_WAG)
+Added Pin To Net: NetName=VCC Pin=J?-1
+Added Pin To Net: NetName=VCC Pin=J?-1
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J? B02B-PASK-1

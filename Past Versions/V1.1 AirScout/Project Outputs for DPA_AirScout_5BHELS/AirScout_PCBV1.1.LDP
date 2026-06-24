@@ -1,0 +1,7 @@
+Layer Pairs Export File for PCB: C:\Users\reneg\SynologyDrive\5BHELS\Diploma\Hardware\Neuer Ordner\V1.1 AirScout\AirScout_PCBV1.1.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=airscout_pcbv1.1-plated.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_NonPlated_Thru_Holes|DrillFile=airscout_pcbv1.1-nonplated.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Signal1_Blind_Vias|DrillFile=airscout_pcbv1.1-plated.tx1|DrillLayers=gtl,g1
+LayersSetName=Top_Signal2_Blind_Vias|DrillFile=airscout_pcbv1.1-plated.tx2|DrillLayers=gtl,g1,g2
+LayersSetName=Signal1_Bot_Blind_Vias|DrillFile=airscout_pcbv1.1-plated.tx3|DrillLayers=g1,g2,gbl
+LayersSetName=Signal2_Bot_Blind_Vias|DrillFile=airscout_pcbv1.1-plated.tx4|DrillLayers=g2,gbl

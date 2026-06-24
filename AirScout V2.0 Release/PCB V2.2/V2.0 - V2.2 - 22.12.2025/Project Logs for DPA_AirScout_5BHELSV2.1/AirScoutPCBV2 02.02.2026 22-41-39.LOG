@@ -1,0 +1,4 @@
+Change component parameters: Designator = "R12" ("R12"); Footprint = "RESC3116X65N"; UniqueID = "\YSOYYMHR" ("\YSOYYMHR")
+Change component parameters (AddParameter): Name = "Value"; Value = "5k7"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R13" ("R13"); Footprint = "RESC3116X65N"; UniqueID = "\QDXQCJWK" ("\QDXQCJWK")
+Change component parameters (AddParameter): Name = "Value"; Value = "5k7"; VariantName = "[No Variations]"

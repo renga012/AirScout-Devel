@@ -1,0 +1,8 @@
+Added Component: Designator=J1(JST_S2B-ZR-SM4A-TF)
+Added Component: Designator=J2(JST_S2B-ZR-SM4A-TF)
+Added Pin To Net: NetName=VBUS Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=VCC Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J2-2
+Added Member To Class: ClassName=AirScout_SchematicsV2.1 Member=Component J1 S2B-ZR-SM4A-TF
+Added Member To Class: ClassName=AirScout_SchematicsV2.1 Member=Component J2 S2B-ZR-SM4A-TF

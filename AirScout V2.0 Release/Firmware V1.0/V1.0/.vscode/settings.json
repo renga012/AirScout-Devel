@@ -1,0 +1,5 @@
+{
+    "raspberry-pi-pico.useCmakeTools": true,
+    "C/C++ Include Guard.Path Skip": 1,
+    "cortex-debug.variableUseNaturalFormat": true,
+}

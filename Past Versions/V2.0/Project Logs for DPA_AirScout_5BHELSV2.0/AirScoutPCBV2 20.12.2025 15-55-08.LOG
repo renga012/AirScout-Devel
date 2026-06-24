@@ -1,0 +1,33 @@
+Added Component: Designator=S2(PIM357)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/854/PIM357_Web.pdf"; VariantName = "[No Variations]"
+Added Component: Designator=S3(IFX-SMD-LG-MLGA-14-1-V_MODUL)
+Add component (AddParameter): Name = "Alternate View"; Value = "No"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.infineon.com/assets/row/public/documents/24/49/infineon-pasco2v01-datasheet-en.pdf?fileId=8ac78c8c80027ecd01809278f1af1ba2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Multiple Parts"; Value = "No"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Symbol Type"; Value = "XENSIV PAS CO2 1.5"; VariantName = "[No Variations]"
+Added Component: Designator=U6(CAM8MQ-Mod)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet IC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://content.u-blox.com/sites/default/files/CAM-M8-FW3_DataSheet_%28UBX-15031574%29.pdf"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=S2-1
+Added Pin To Net: NetName=GND Pin=S2-2
+Added Pin To Net: NetName=I2C/SCL Pin=S2-3
+Added Pin To Net: NetName=I2C/SDA Pin=S2-4
+Added Pin To Net: NetName=3V3 Pin=S3-1
+Added Pin To Net: NetName=I2C/SCL Pin=S3-3
+Added Pin To Net: NetName=I2C/SDA Pin=S3-4
+Added Pin To Net: NetName=GND Pin=S3-6
+Added Pin To Net: NetName=5VCC Pin=S3-10
+Added Pin To Net: NetName=3V3 Pin=U6-1
+Added Pin To Net: NetName=RESET Pin=U6-2
+Added Pin To Net: NetName=EXTIN Pin=U6-5
+Added Pin To Net: NetName=3V3 Pin=U6-7
+Added Pin To Net: NetName=GND Pin=U6-8
+Added Pin To Net: NetName=UART/RX Pin=U6-9
+Added Pin To Net: NetName=UART/TX Pin=U6-10
+Added Pin To Net: NetName=I2C/SCL Pin=U6-11
+Added Pin To Net: NetName=I2C/SDA Pin=U6-12
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component S2 SSM-106-F-SV
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component S3 SSM-106-F-SV
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component U6 FM20206VBNN; SSM-106-F-SV

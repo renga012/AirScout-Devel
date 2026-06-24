@@ -1,0 +1,16 @@
+Change Component Comment : Designator=J5 Old Comment=0705430002 New Comment=IDMS-3-D-02.00-R
+Change Component Comment : Designator=J6 Old Comment=0705430002 New Comment=IDMS-3-D-02.00-R
+Change Component Comment : Designator=J7 Old Comment=0705430002 New Comment=IDMS-3-D-02.00-R
+Change Component Comment : Designator=J8 Old Comment=0705430002 New Comment=IDMS-3-D-02.00-R
+Change Component Comment : Designator=J3 Old Comment=0705430013 New Comment=IDMS-14-D-02.00-R
+Change Component Description : Designator=J5 Old Description=CONN HEADER VERT 3POS 2.54MM New Description=Alternitives:  IDMS-3-D-03.00, IDMS-3-D-02.00, IDMS-3-D-03.00-R
+Change Component Description : Designator=J6 Old Description=CONN HEADER VERT 3POS 2.54MM New Description=Alternitives:  IDMS-3-D-03.00, IDMS-3-D-02.00, IDMS-3-D-03.00-R
+Change Component Description : Designator=J7 Old Description=CONN HEADER VERT 3POS 2.54MM New Description=Alternitives:  IDMS-3-D-03.00, IDMS-3-D-02.00, IDMS-3-D-03.00-R
+Change Component Description : Designator=J8 Old Description=CONN HEADER VERT 3POS 2.54MM New Description=Alternitives:  IDMS-3-D-03.00, IDMS-3-D-02.00, IDMS-3-D-03.00-R
+Change Component Description : Designator=J3 Old Description=CONN HEADER VERT 14POS 2.54MM New Description=Alternitives: IDMS-14-D-03.00, IDMS-14-D-02.00, IDMS-14-D-03.00-R
+Added Component: Designator=J4(SAMTEC_IDMS-04-S-02.00)
+Added Pin To Net: NetName=SPI/SCK Pin=J4-1
+Added Pin To Net: NetName=SPI/MISO Pin=J4-2
+Added Pin To Net: NetName=SPI/MOSI Pin=J4-3
+Added Pin To Net: NetName=SPI/CS-SD Pin=J4-4
+Added Member To Class: ClassName=AirScout_SchematicsV2.0 Member=Component J4 IDMS-4-D-02.00-R

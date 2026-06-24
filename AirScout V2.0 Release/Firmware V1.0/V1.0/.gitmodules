@@ -1,0 +1,21 @@
+[submodule "lib/BME68x_SensorAPI"]
+	path = lib/BME68x_SensorAPI
+	url = https://github.com/boschsensortec/BME68x_SensorAPI.git
+[submodule "lib/minmea"]
+	path = lib/minmea
+	url = https://github.com/kosma/minmea.git
+[submodule "lib/cJSON"]
+	path = lib/cJSON
+	url = https://github.com/DaveGamble/cJSON.git
+[submodule "lib/microlog"]
+	path = lib/microlog
+	url = https://github.com/an-dr/microlog.git
+[submodule "lib/pico-extras"]
+	path = lib/pico-extras
+	url = https://github.com/raspberrypi/pico-extras
+[submodule "lib/QRCode"]
+	path = lib/QRCode
+	url = https://github.com/ricmoo/QRCode.git
+[submodule "lib/embedded-i2c-sps30"]
+	path = lib/embedded-i2c-sps30
+	url = https://github.com/Sensirion/embedded-i2c-sps30.git
