@@ -1,1 +1,3 @@
 Record=TopLevelDocument|FileName=BMS-Batteriemanagment.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=BMS-Batteriemanagment.SchDoc|FileName=CNS-Control and Navigation Unit.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=BMS-Batteriemanagment.SchDoc|FileName=UI-User_Interface.SchDoc|SheetNumber=2
